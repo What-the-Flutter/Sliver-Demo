@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sliver_demo/presentation/pages/sliver_app_bar_example.dart';
+import 'package:sliver_demo/presentation/pages/example_5.dart';
+// import 'package:sliver_demo/presentation/pages/example_1.dart';
+// import 'package:sliver_demo/presentation/pages/example_2.dart';
+// import 'package:sliver_demo/presentation/pages/example_3.dart';
+// import 'package:sliver_demo/presentation/pages/example_4.dart';
+// import 'package:sliver_demo/presentation/pages/example_5.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -8,7 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SliverAppBarExample(),
+      home: Example5(),
     );
   }
 }

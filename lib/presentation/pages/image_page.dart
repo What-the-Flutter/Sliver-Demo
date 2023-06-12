@@ -13,7 +13,7 @@ class ImagePage extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
-                AppConstants.imageUrl,
+                AppConstants.imageUrlAppBar,
               ),
               fit: BoxFit.cover,
             ),

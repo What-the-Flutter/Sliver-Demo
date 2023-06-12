@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class AppBarActionButton extends StatelessWidget {
   final IconData iconData;
   final EdgeInsets? padding;
+  final VoidCallback? onPressed;
 
   const AppBarActionButton({
     required this.iconData,
     this.padding,
+    this.onPressed,
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +18,7 @@ class AppBarActionButton extends StatelessWidget {
       padding: padding ?? const EdgeInsets.only(right: 8.0),
       child: RawMaterialButton(
         constraints: BoxConstraints.tight(const Size(36, 36)),
-        onPressed: () {},
+        onPressed: onPressed,
         elevation: 0,
         fillColor: Colors.white.withOpacity(0.8),
         shape: const CircleBorder(),
