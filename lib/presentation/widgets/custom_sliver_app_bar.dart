@@ -5,10 +5,12 @@ import 'package:sliver_demo/presentation/widgets/app_bar_action_button.dart';
 class CustomSliverAppBar extends StatelessWidget {
   final double expandedHeight;
   final bool isFlexibleSpaceVisible;
+  final String anotherTitle;
 
   const CustomSliverAppBar({
     required this.expandedHeight,
     required this.isFlexibleSpaceVisible,
+    required this.anotherTitle,
     Key? key,
   }) : super(key: key);
 
@@ -17,7 +19,6 @@ class CustomSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       pinned: true,
       stretch: true,
-      stretchTriggerOffset: AppConstants.maxOffset,
       expandedHeight: expandedHeight,
       backgroundColor: Colors.white,
       elevation: 0,
@@ -26,14 +27,14 @@ class CustomSliverAppBar extends StatelessWidget {
         iconData: Icons.arrow_back_ios_new,
         padding: EdgeInsets.all(8),
       ),
-      title: isFlexibleSpaceVisible
-          ? const _FollowButton()
-          : const Text(
-              'Another title',
-              style: TextStyle(
+      title: !isFlexibleSpaceVisible
+          ? Text(
+              anotherTitle,
+              style: const TextStyle(
                 color: Colors.black,
               ),
-            ),
+            )
+          : null,
       centerTitle: true,
       actions: const [
         AppBarActionButton(iconData: Icons.ios_share),
@@ -59,38 +60,9 @@ class _FlexibleSpaceBar extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
-                AppConstants.imageUrl,
+                AppConstants.imageUrlAppBar,
               ),
               fit: BoxFit.cover,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _FollowButton extends StatelessWidget {
-  const _FollowButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topRight,
-      child: RawMaterialButton(
-        onPressed: () {},
-        elevation: 0.0,
-        fillColor: Colors.deepPurple[500],
-        constraints: BoxConstraints.tight(const Size(80, 36)),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: const Center(
-          child: Text(
-            'Follow',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
             ),
           ),
         ),
